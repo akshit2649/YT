@@ -26,6 +26,7 @@ const Container = styled.div`
   font-size: 14px;
   position: sticky;
   top: 0;
+  overflow-y: scroll;
 `;
 const Wrapper = styled.div`
   padding: 18px 26px;
@@ -80,9 +81,9 @@ const Title = styled.h2`
   margin-bottom: 20px;
 `;
 
-const Menu = () => {
+const Menu = ({ darkMode, setDarkMode }) => {
   return (
-    <Container>
+    <Container className="webKit">
       <Wrapper>
         <Logo>
           <Img src={Utube} /> Utube
@@ -155,7 +156,7 @@ const Menu = () => {
           <HelpOutlineOutlinedIcon />
           Help
         </Item>
-        <Item>
+        <Item onClick={() => setDarkMode(!darkMode)}>
           <SettingsBrightnessOutlinedIcon />
           Dark Mode
         </Item>

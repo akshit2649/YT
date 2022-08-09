@@ -1,7 +1,9 @@
+import "./App.css";
+import { useState } from "react";
 import Menu from "./components/Menu";
 import styled, { ThemeProvider } from "styled-components";
-import "./App.css";
 import Navbar from "./components/Navbar";
+import { darkTheme, lightTheme } from "./utils/Theme";
 
 const Container = styled.div`
   display: flex;
@@ -16,14 +18,18 @@ const Wrapper = styled.div`
 `;
 
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
+
   return (
-    <Container>
-      <Menu />
-      <Main>
-        <Navbar />
-        <Wrapper>Video Cards</Wrapper>
-      </Main>
-    </Container>
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <Container>
+        <Menu darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Main>
+          <Navbar />
+          <Wrapper>Video Cards</Wrapper>
+        </Main>
+      </Container>
+    </ThemeProvider>
   );
 }
 
