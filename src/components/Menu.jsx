@@ -17,6 +17,7 @@ import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
@@ -85,9 +86,11 @@ const Menu = ({ darkMode, setDarkMode }) => {
   return (
     <Container className="webKit">
       <Wrapper>
-        <Logo>
-          <Img src={Utube} /> Utube
-        </Logo>
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <Logo>
+            <Img src={Utube} /> Utube
+          </Logo>
+        </Link>
         <Item>
           <HomeIcon />
           Home
